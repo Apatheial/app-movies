@@ -1,0 +1,36 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.cover {
+    width: 225px;
+    border-radius: 8px;
+}
+
+.cover:hover {
+    transform: scale(1.15);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #222;
+}
+
+.icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background-color: #00000050;
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.icon:hover {
+    background-color: #000000;
+    cursor: pointer;
+}

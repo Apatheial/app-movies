@@ -1,0 +1,8 @@
+.container {
+    padding-top: 72px;
+    padding-inline: 3rem;
+
+    & h2 {
+        color: #fff;
+    }
+}

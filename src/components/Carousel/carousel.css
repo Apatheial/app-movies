@@ -1,0 +1,11 @@
+.slick-prev:before,
+.slick-next:before {
+    color: red;
+    font-size: 1.5rem;
+}
+
+
+
+.slick-list {
+    margin: 0 1rem;
+}

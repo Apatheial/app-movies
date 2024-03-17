@@ -1,0 +1,15 @@
+.footer {
+    position: absolute;
+    min-width: 100%;
+    min-height: 58px;
+    text-align: center;
+    background-color: #010C13;
+    border-top: 3px solid #7A0018;
+    color: white;
+    font-size: 0.6rem;
+    padding: 0.8rem;
+    
+    & h2 {
+        font-weight: 500;
+    }
+}

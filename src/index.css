@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  min-width: 100%;
+  min-height: 100vh;
+  font-family: 'Poppins,' sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+body::-webkit-scrollbar {
+  width: 12px;                  /* largura da barra de rolagem*/
+  background-color: #222;
+}
+
+body::-webkit-scrollbar-track {
+  background: #222;           /* cor de fundo da barra de rolagem */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #b71c1c;  /* cor do scroll (thumb) da barra de rolagem */
+  border-radius: 20px;          /* arredondar o scroll (thumb) */
+  border: 3px solid #222;     /* criar um espaço em volta do scroll (thumb) */
+}

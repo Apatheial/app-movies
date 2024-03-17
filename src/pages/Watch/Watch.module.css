@@ -1,0 +1,16 @@
+.configContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.watch {
+    width: 90%;
+}
+
+@media (max-width: 1024px) {
+    iframe {
+        width: 100%;
+        aspect-ratio: 16/9;
+    }
+}
