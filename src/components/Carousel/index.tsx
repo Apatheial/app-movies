@@ -4,7 +4,7 @@ import Slider from "react-slick"
 function Carousel({ children } : { children: React.ReactNode }) {
     
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 300,
         centerMode: false,
@@ -13,7 +13,7 @@ function Carousel({ children } : { children: React.ReactNode }) {
         autoplay: true,
         autoplaySpeed: 2000,
         pauseOnHover: true,
-        swipeToSlide: true
+        swipeToSlide: true,
     }
     
     return (
