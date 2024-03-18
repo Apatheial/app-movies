@@ -36,10 +36,13 @@ function Home() {
         );
     }
 
+    const banners = ['favoritos', 'assistir', 'home']
+    const randomBanner = banners[Math.floor(Math.random() * 3)]
+
     return (
         <>
             <Header />
-            <Banner image="favoritos" />
+            <Banner image={ randomBanner } />
             <Container personStyle={styles.container}>
                 {   videos ? (
                         categories.map((category) => {
