@@ -1,12 +1,22 @@
 import styles from "./Category.module.css";
-import videos from "../../json/videos.json";
+import playLists from "../../json/playLists.json";
+import { resolveVideos } from "../../api/youtubePlaylist";
 
-export const categories: string[] = videos.reduce((category:string[], item) => {
-    return category.includes(item.category) ? category : [...category, item.category]
-}, [])
+export const categories: string[] = playLists.map((item: any) => item.category)
 
-export function filterCategory(category: string): string[] {
-    return videos.filter((video) => video.category === category).map((video) => video.id)
+async function groupCategory (category: string) {
+    const playlist = playLists.filter((list: any) => list.category === category)
+    const videos = await resolveVideos(playlist[0].idPlaylist, playlist[0].category)
+    return videos
+}
+
+export async function allVideos () {
+    const arrayVideos: any[] = []
+    await Promise.all(categories.map(async (category: any) => {
+        const group = await groupCategory(category)
+        arrayVideos.push(...group)
+    }))
+    return arrayVideos
 }
 
 function Category({ category, children } : { category: string, children: React.ReactNode }) {

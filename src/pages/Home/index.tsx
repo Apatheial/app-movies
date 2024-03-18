@@ -2,25 +2,62 @@ import Banner from "../../components/Banner";
 import Container from "../../components/Container";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header"
-import Category, { categories, filterCategory } from "../../components/Category";
+import Category, { categories, allVideos } from "../../components/Category";
 import Card from "../../components/Card";
 import styles from "./Home.module.css"
 import Carousel from "../../components/Carousel";
 import ScrollToTopButton from "../../components/ScrollToTopButton";
+import { useEffect, useState } from "react";
+import Loader from "../../components/Loader";
 
 function Home() {
+
+    const [ videos, setVideos ] =  useState<any[]>([])
+    const [ loading, setLoading ] = useState<boolean>(true) 
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const arrayVideos = await allVideos()
+            setVideos(arrayVideos)
+            setLoading(false)
+        }
+        fetchData()
+    }, [])
+    
+    if(loading) {
+        return (
+            <>
+                <Header />
+                <Container personStyle={styles.containerLoading}>
+                    <Loader />
+                </Container>
+                <Footer />
+            </>
+        );
+    }
+
     return (
         <>
             <Header />
-            <Banner image="favoritos"/>
-            <Container personStyle={ styles.container }>
-                {   categories.map((category: string) => {
-                    return <Category category={category} key={category} >
-                        <Carousel>
-                            { filterCategory(category).map((video: string) => <Card id={video} key={video} /> ) }
-                        </Carousel>
-                    </Category>
-                  })
+            <Banner image="favoritos" />
+            <Container personStyle={styles.container}>
+                {   videos ? (
+                        categories.map((category) => {
+                            return <Category category={ category } key={ category }>
+                                <Carousel>
+                                    {
+                                        videos.map((video: any) => {
+                                            if(video.band === category) {
+                                                return <Card id={ video.id } key={ video.id }/>
+                                            }
+                                        })
+                                    }
+                                </Carousel>
+                            </Category>
+                        }) 
+                    ) : (
+                        <Loader />
+                    )
                 }
             </Container>
             <ScrollToTopButton />

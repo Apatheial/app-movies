@@ -5,7 +5,7 @@ import Loader from "../Loader";
 
 export function filterVideos(videos: any, searchText: string) {
     return videos.filter((video: any) => 
-        video.category.toLowerCase().includes(searchText.toLowerCase) || 
+        video.band.toLowerCase().includes(searchText.toLowerCase) || 
         video.title.toLowerCase().includes(searchText.toLocaleLowerCase())
     )
 }

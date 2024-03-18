@@ -3,3 +3,10 @@
     padding-inline: 2.5rem 2.5rem;
     min-height: calc(100vh - 58px - 347px);
 }
+
+.containerLoading {
+    padding-top: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
